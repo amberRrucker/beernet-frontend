@@ -11,45 +11,47 @@
 ?>
 
 	</div><!-- .container-fluid -->
+	
+	<div class="footer-wrapper">
+  	<div class="footer-container container">
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<?php if ( has_nav_menu( 'primary' ) ) : ?>
-			<nav class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Footer Primary Menu', 'echods' ); ?>">
-				<?php
-					wp_nav_menu( array(
-						'theme_location' => 'primary',
-						'menu_class'     => 'primary-menu',
-					 ) );
-				?>
-			</nav><!-- .main-navigation -->
-		<?php endif; ?>
+    	<footer id="colophon" class="site-footer" role="contentinfo">
+    		<?php if ( has_nav_menu( 'footer-one' ) ) : ?>
+    			<nav class="footer-one footer-column" role="navigation" aria-label="<?php esc_attr_e( 'Footer Primary Menu', 'echods' ); ?>">
+    				<?php
+    					wp_nav_menu( array(
+    						'theme_location' => 'footer-one',
+    						'menu_class'     => 'footer-columnList footer-one',
+    					 ) );
+    				?>
+    			</nav><!-- .main-navigation -->
+    		<?php endif; ?>
+    
+    		<?php if ( has_nav_menu( 'footer-two' ) ) : ?>
+    			<nav class="footer-two footer-column" role="navigation" aria-label="<?php esc_attr_e( 'Footer Secondary Menu', 'echods' ); ?>">
+    				<?php
+    					wp_nav_menu( array(
+    						'theme_location' => 'footer-two',
+    						'menu_class'     => 'footer-columnList footer-two',
+    					 ) );
+    				?>    			
+    		  </nav><!-- .social-navigation -->
+    		<?php endif; ?>
+    		
+    		<?php if ( has_nav_menu( 'footer-three' ) ) : ?>
+    			<nav class="footer-three footer-column" role="navigation" aria-label="<?php esc_attr_e( 'Footer Account Menu', 'echods' ); ?>">
+    				<?php
+    					wp_nav_menu( array(
+    						'theme_location' => 'footer-three',
+    						'menu_class'     => 'footer-columnList footer-three',
+    					 ) );
+    				?>    			
+    		  </nav><!-- .social-navigation -->
+    		<?php endif; ?>
 
-		<?php if ( has_nav_menu( 'social' ) ) : ?>
-			<nav class="social-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Footer Social Links Menu', 'echods' ); ?>">
-				<?php
-					wp_nav_menu( array(
-						'theme_location' => 'social',
-						'menu_class'     => 'social-links-menu',
-						'depth'          => 1,
-						'link_before'    => '<span class="screen-reader-text">',
-						'link_after'     => '</span>',
-					) );
-				?>
-			</nav><!-- .social-navigation -->
-		<?php endif; ?>
-
-		<div class="site-info">
-			<?php
-				/**
-				 * Fires before the echods footer text for footer customization.
-				 *
-				 * @since Echods 1.0
-				 */
-				do_action( 'echods_credits' );
-			?>
-			<span class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
-		</div><!-- .site-info -->
-	</footer><!-- .site-footer -->
+    	</footer><!-- .site-footer -->
+  	</div>
+	</div>
 
 <?php wp_footer(); ?>
 </body>

@@ -9,6 +9,7 @@
     "requirejs": "^2.3.2"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.2.0",
     "aos": "^2.1.1",
     "axios": "^0.15.3",
     "babel-cli": "^6.24.0",
