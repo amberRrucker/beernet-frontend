@@ -14,8 +14,8 @@ function echods_widgets_init() {
         'description'   => __( 'Add widgets here to appear in your sidebar.', 'echods' ),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
         'after_widget'  => '</section>',
-        'before_title'  => '<h2 class="widget-title">',
-        'after_title'   => '</h2>',
+        'before_title'  => '<h6 class="widget-title sidebarSectionOne-title">',
+        'after_title'   => '</h6><hr class="sidebarSectionOne-hr"/>',
     ) );
 
     register_sidebar( array(
@@ -24,8 +24,8 @@ function echods_widgets_init() {
         'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'echods' ),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
         'after_widget'  => '</section>',
-        'before_title'  => '<h2 class="widget-title">',
-        'after_title'   => '</h2>',
+        'before_title'  => '<h6 class="widget-title sidebarSectionTwo-title">',
+        'after_title'   => '</h6><hr class="sidebarSectionTwo-hr"/>',
     ) );
 
     register_sidebar( array(
@@ -34,8 +34,8 @@ function echods_widgets_init() {
         'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'echods' ),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
         'after_widget'  => '</section>',
-        'before_title'  => '<h2 class="widget-title">',
-        'after_title'   => '</h2>',
+        'before_title'  => '<h6 class="widget-title sidebarSectionThree-title">',
+        'after_title'   => '</h6><hr class="sidebarSectionThree-hr"/>',
     ) );
 }
 add_action( 'widgets_init', 'echods_widgets_init' );

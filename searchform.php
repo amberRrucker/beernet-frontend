@@ -8,11 +8,10 @@
  */
 ?>
 
-<form role="search" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get" class="form-inline">
-	<div class="form-group">
-	    <label for="search" class="sr-only">Search in <?php echo home_url( '/' ); ?></label>
-	    <input type="text" name="s" class="form-control input-lg" id="search" value="<?php the_search_query(); ?>" />
+<form role="search" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get" class="form-inline search">
+	<div class="form-group search-group">
+	    <input type="text" name="s" class="form-control input-lg search-input sidebar-searchInput" placeholder="Search Term" id="search" value="<?php the_search_query(); ?>" />
 	</div>
 
-    <button type="submit" class="btn btn-pill btn-lg">Search</button>
+    <button type="submit" class="btn search-btn"><i class="fas fa-search search-icon" style="font-style: normal;"></i></button>
 </form>

@@ -10,35 +10,28 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
-			<span class="sticky-post"><?php _e( 'Featured', 'echods' ); ?></span>
-		<?php endif; ?>
+		
+		<div class="row">
+		  <div class="col-md-12">
 
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+          <?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+		    </div>
+		  </div>
 	</header><!-- .entry-header -->
-
-	<?php echods_excerpt(); ?>
-
-	<?php echods_post_thumbnail(); ?>
-
-	<div class="entry-content">
-		<?php
-			/* translators: %s: Name of current post */
-			the_content( sprintf(
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'echods' ),
-				get_the_title()
-			) );
-
-			wp_link_pages( array(
-				'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'echods' ) . '</span>',
-				'after'       => '</div>',
-				'link_before' => '<span>',
-				'link_after'  => '</span>',
-				'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'echods' ) . ' </span>%',
-				'separator'   => '<span class="screen-reader-text">, </span>',
-			) );
-		?>
-	</div><!-- .entry-content -->
+	
+	<div class="row">
+	  <div class="col-md-3 post-imageWrapper">
+      <div class="post-image"><?php the_post_thumbnail(); ?></div>
+	  </div>
+	  <div class="col-md-9">
+      <?php the_excerpt(); ?>
+      <div class="row">
+        <div class="col-md-3">
+          <i class="fas fa-calendar-alt post-date"></i><?php echo get_the_date('F j, Y'); ?>
+        </div>
+      </div>
+	  </div>
+  </div>
 
 	<footer class="entry-footer">
 		<?php echods_entry_meta(); ?>

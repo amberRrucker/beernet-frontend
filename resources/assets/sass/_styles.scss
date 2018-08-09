@@ -1,3 +1,418 @@
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|News+Cycle');
+
+$heading: 'Abril Fatface', cursive;
+$body-font: 'News Cycle', sans-serif;
+$site-color: #333 !default; // very dark grey
+$light-gray: #BEBEBE;
+$dark-gray: #6f6f6f;
+$black: #000000;
+
 body {
-    background-image: url('../img/test.jpg');
+    //background-image: url('../img/test.jpg');
+    font-family: $body-font;
+    font-size: 13px;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: $heading;
+}
+
+h6 {
+  font-family: $body-font;
+}
+
+a {
+  color: $site-color;
+  text-decoration: underline;
+  border: none!important;
+
+  &:hover {
+    color: $site-color;
+  }
+}
+
+
+input,
+textarea {
+  border: 1px solid $site-color;
+}
+
+
+button,
+input[type="submit"],
+.btn {
+  background-color: $site-color;
+  border-radius: 0;
+  padding: 5px 16px;
+  
+  a {
+    font-size: .9rem;
+    font-weight: 600;
+    color: white!important;
+    text-decoration: none;
+  }
+  
+  &:hover {
+    background-color: $dark-gray;
+    
+    a {
+      text-decoration: none!important;
+    }
+  }
+}
+
+.sidebarSectionOne-hr, .sidebarSectionTwo-hr, .sidebarSectionThree-hr {
+  border: $light-gray 0.5px solid;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+
+//Navigation
+
+.nav-wrapper {
+  background-color: white;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
+  max-height: 65px;
+  overflow: visible;
+}
+
+.nav-container {
+  
+}
+
+.nav-logo {
+  background: white;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
+  width: 275px;
+  
+    a {
+      background-image: url('../img/logo.png');
+      height: 107px;
+      margin-top: 30px;
+    }
+}
+
+
+.navbar-nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  flex-direction: row;
+  justify-content: space-between;
+  
+  .menu-item {
+  float: left;
+  align-self: baseline;
+  
+    a {
+      display: block;
+      color: black;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      color: $dark-gray;
+      font-weight: bold;
+    }
+    
+    a[title="Subscribe"] {
+      padding: 0 16px;
+      
+      &:hover {
+        background-color: transparent;
+      }
+    }
+    
+    a[title="Home"] {
+      color: transparent;
+      
+        &:hover {
+          background-color: white;
+        }
+    }
+    
+    a[title="Login"] {
+      @include fa-icon;
+      color: transparent;
+    
+      &:before {
+        font-style: normal;
+        content: "\F007";
+        color: $dark-gray;
+        font-size: 1.15rem;
+      }
+    }
+    
+    & :hover {
+      background-color: transparent;
+      text-decoration: underline;
+    }
+  
+  }
+  
+}
+
+
+.page-container {
+  margin-top: 70px;
+}
+
+.featured {
+  background: linear-gradient(to bottom, #ffffff, #eeecec);
+  padding: 100px 0 50px;
+}
+
+
+//Search
+
+.form-inline .form-group {
+  @include media-breakpoint-up(md) {  
+    flex: 1 0 auto;
+    height: 100%;
+  }
+}
+
+.sidebar-searchInput {
+  border-radius: 0;
+  font-size: .75rem;  
+}
+
+.form-inline .form-control {
+  @include media-breakpoint-up(md) { 
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.search-label {
+  //color: $gray;
+}
+
+.search-btn {
+  background-color: black!important;
+  border-radius: 0!important;
+  padding: 4px 0.75rem!important;
+}
+
+.search-icon {
+  color: white;
+  font-family: FontAwesome;
+}
+
+
+//Sidebar
+
+.sidebar-wrapper {
+  @include make-col-ready();
+  display: none;
+  border-right: 1px solid $light-gray;
+  padding-right: 50px;
+  
+  @include media-breakpoint-up(md) {  
+    @include make-col(3);
+    display: block;
+    margin-right: 8%;
+  }
+}
+
+.widget {
+  margin-bottom: 40px;
+  
+  ul {
+    list-style-type: none;
+    padding-left: 5px;
+  }
+  
+  li a {
+    color: black;
+    text-decoration: none;
+    font-size: 1em;
+    border: 0;
+  }
+}
+
+.featured-post {
+  @include make-col-ready();
+  @include make-col(12);
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.09);
+  padding: 0;
+  
+  @include media-breakpoint-up(md) {  
+    @include make-col(3.5);
+    margin: 0 2%;
+  }
+  
+  img {
+    max-height: 200px;
+    max-width: 100%;
+    object-fit: cover;
+  }
+}
+
+.post-content {
+  padding: 15px;
+  
+  a {
+    color: $black;
+  }
+}
+
+.post {
+  border-bottom: .5px solid $light-gray;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.post:nth-of-type(3) {
+  :after {
+    content: "";
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    background: linear-gradient(rgba(0,0,0,0), #ffffff82);
+  }
+}
+
+.entry-title a {
+  color: $black;
+  text-decoration: none;
+}
+
+.post-imageWrapper {
+  overflow: hidden;
+}
+
+.post-image img {
+  object-fit: cover;
+  height: 20vh;
+  width: 30vw;
+}
+
+.post-date {
+  @include make-col-ready();
+  @include make-col(12);
+  position: absolute;
+  bottom: 0;
+  color: $light-gray;
+  
+  @include media-breakpoint-up(md) {  
+    @include make-col(5);
+  }
+}
+
+.post-dateIcon {
+  color: $light-gray;
+  font-family: 'FontAwesome';
+  padding-left: 0;
+  
+  &:before {
+    font-style: normal;
+    content: "\F073";
+    margin-right: 10px;
+  }
+}
+
+
+
+a.more-link {
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+  color: $black;
+  text-decoration: underline;
+  
+  & :hover {
+    color: $site-color;
+  }
+  
+}
+
+.featured-post {
+  
+  & a {
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  
+  .post-content {
+    margin-bottom: 1rem;
+  }
+  
+  & a.more-link {
+    bottom: 10px;
+    
+    & :hover {
+      color: $site-color;
+    }
+  }
+  
+  & .post-date {
+    bottom: 10px;
+    padding-left: 0;
+  }
+}
+
+.join-linkWrapper {
+  margin: 20px auto;
+  width: 20%;
+  text-align: center;
+}
+
+.join-link {
+  color: black;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+
+
+//Footer
+
+.footer-wrapper {
+  background-image: linear-gradient(to top, #ffffff, #eeecec);
+}
+
+.footer-container {
+  padding: 50px 0px;
+}
+
+.footer-column {
+  @include make-col-ready();
+  @include make-col(12);
+  
+  @include media-breakpoint-up(md) {  
+    @include make-col(4);
+    float: left;
+  }
+  
+}
+
+.footer-columnList {
+  list-style-type: none;
+  
+  li {
+    padding: 10px 0;
+    
+    a {
+      color: $dark-gray;
+      text-decoration: none;
+    }
+  }
+  
+  li.btn {
+    padding: 5px 40px;
+    
+    a {
+      font-size: 0.75rem;
+      line-height: 0.75rem;
+    }
+  }
 }

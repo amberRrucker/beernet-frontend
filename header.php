@@ -36,9 +36,8 @@
 <body <?php body_class(); ?>>
 
     <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'echods' ); ?></a>
-
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
+    <nav class="navbar navbar-default nav-wrapper">
+        <div class="container-fluid nav-container">
 
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -48,7 +47,6 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="/"><img src="<?php echo get_template_directory_uri() ?>/assets/img/logo.png"></a>
             </div>
 
             <?php
@@ -67,8 +65,9 @@
                     );
                 endif;
             ?>
+            
+            
         
         </div><!-- /.container-fluid -->
+        
     </nav>
-
-    <div class="container">
